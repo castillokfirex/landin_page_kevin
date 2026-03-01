@@ -1,0 +1,185 @@
+/* === RESET BÁSICO === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* Familia Inter para textos generales, color gris intermedio */
+    font-family: 'Inter', sans-serif;
+    color: #555555;
+    background-color: #ffffff;
+    /* Tema claro principal */
+    line-height: 1.6;
+}
+
+/* El contenedor principal */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 40px;
+}
+
+/* === SECCIÓN SUPERIOR HERO (TEXTO E IMAGEN) === */
+.hero-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 80px;
+    /* Separación con la tarjeta de abajo */
+    gap: 40px;
+}
+
+/* --- COLUMNA IZQUIERDA (TEXTO) --- */
+.content-text {
+    flex: 1;
+    max-width: 500px;
+}
+
+.main-title {
+    /* Outfit para los títulos en gris oscuro casi negro */
+    font-family: 'Outfit', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #222222;
+    line-height: 1.2;
+    margin-bottom: 24px;
+}
+
+.description {
+    font-size: 1.1rem;
+    color: #666666;
+    margin-bottom: 40px;
+}
+
+/* Botón Explore */
+.btn {
+    background-color: #222222;
+    /* Botón oscuro */
+    color: #ffffff;
+    border: none;
+    border-radius: 30px;
+    /* Bordes suaves estilo pastilla */
+    padding: 14px 40px;
+    font-size: 1.05rem;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.btn:hover {
+    background-color: #000000;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* --- COLUMNA DERECHA (IMAGEN) --- */
+.content-img {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    /* Alinear imagen a la derecha */
+}
+
+.content-img img {
+    /* La imagen contiene los dos arcos entrelazados */
+    max-width: 100%;
+    height: auto;
+    display: block;
+    /* La imagen en sí tiene formas asimétricas (arcos), 
+       así que la dejamos fluir naturalmente */
+}
+
+
+/* === SECCIÓN INFERIOR (TARJETA NEGRA CON 3 COLUMNAS) === */
+.features-card {
+    background-color: #272727;
+    /* Gris muy oscuro, casi negro */
+    border-radius: 30px;
+    /* Bordes redondeados pronunciados */
+    padding: 60px 80px;
+
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.feature-item {
+    flex: 1;
+    color: #ffffff;
+    /* El texto dentro de la tarjeta oscura es blanco */
+}
+
+.feature-icon {
+    /* El ícono de nube gris */
+    margin-bottom: 16px;
+    display: block;
+}
+
+.feature-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: #ffffff;
+}
+
+.feature-desc {
+    font-size: 0.95rem;
+    color: #aaaaaa;
+    /* Gris más claro para la descripción */
+    line-height: 1.6;
+}
+
+
+/* ======= DISEÑO ADAPTABLE (MÓVILES Y TABLETS) ======= */
+
+@media (max-width: 950px) {
+    .container {
+        padding: 40px 20px;
+    }
+
+    .hero-section {
+        flex-direction: column;
+        /* Apilar texto arriba de la imagen */
+        text-align: center;
+        gap: 60px;
+    }
+
+    .content-text {
+        max-width: 100%;
+    }
+
+    .content-img {
+        justify-content: center;
+        width: 100%;
+        max-width: 600px;
+    }
+
+    .features-card {
+        flex-direction: column;
+        /* Apilar las 3 características en móvil */
+        padding: 40px;
+        gap: 40px;
+    }
+
+    .feature-item {
+        text-align: center;
+    }
+
+    .feature-icon {
+        margin: 0 auto 16px auto;
+        /* Centrar icono en celular */
+    }
+}
+
+@media (max-width: 600px) {
+    .main-title {
+        font-size: 2.8rem;
+    }
+
+    .features-card {
+        padding: 30px 20px;
+    }
+}
