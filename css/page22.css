@@ -1,0 +1,302 @@
+/* =============================================
+   RESET & VARIABLES
+   ============================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --font-main: 'Inter', sans-serif;
+    --color-bg-dark: #00041a;
+    /* Very dark navy blue */
+    --color-text-white: #ffffff;
+    --color-text-gray: rgba(255, 255, 255, 0.75);
+    --color-btn-bg: #ffffff;
+    --color-btn-text: #0b1021;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--color-bg-dark);
+    color: var(--color-text-white);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+/* =============================================
+   WRAPPER
+   ============================================= */
+.wrapper {
+    width: 100%;
+    min-height: 100vh;
+    padding-bottom: 60px;
+}
+
+.container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+/* =============================================
+   TOP SECTION (Split Focus)
+   ============================================= */
+.top-split {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-top: 100px;
+    margin-bottom: 80px;
+}
+
+/* Left Hero Text */
+.hero-left {
+    flex: 0 0 45%;
+    max-width: 500px;
+}
+
+.main-title {
+    font-size: 3.8rem;
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 24px;
+    letter-spacing: -1px;
+}
+
+.main-desc {
+    font-size: 0.95rem;
+    color: var(--color-text-gray);
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+.btn-explore {
+    display: inline-block;
+    background-color: var(--color-btn-bg);
+    color: var(--color-btn-text);
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 12px 34px;
+    border-radius: 8px;
+    /* Slightly rounded rectangle */
+    text-decoration: none;
+    transition: transform 0.2s ease, opacity 0.2s;
+}
+
+.btn-explore:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+/* Right Hanging Images */
+.hero-right {
+    flex: 0 0 50%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+    /* This negative margin pulls the images UP so they "hang" from the ceiling */
+    margin-top: -100px;
+}
+
+.hero-img {
+    object-fit: cover;
+    /* Bottom gets rounded, top stays square as in design */
+    border-radius: 0 0 150px 150px;
+}
+
+.img-pill-large {
+    width: 280px;
+    height: 480px;
+}
+
+.img-pill-small {
+    width: 250px;
+    height: 400px;
+}
+
+/* =============================================
+   MIDDLE SECTION
+   ============================================= */
+.middle-split {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 60px;
+    gap: 40px;
+}
+
+/* Wide image on left */
+.middle-left {
+    flex: 0 0 55%;
+}
+
+.img-wide {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 20px;
+    display: block;
+}
+
+/* Numbered list on right */
+.middle-right {
+    flex: 0 0 40%;
+    padding-left: 20px;
+}
+
+.white-line {
+    width: 60px;
+    height: 3px;
+    background-color: #fff;
+    margin-bottom: 30px;
+}
+
+.list-item {
+    margin-bottom: 24px;
+}
+
+.list-num {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.list-desc {
+    font-size: 0.85rem;
+    color: var(--color-text-gray);
+    line-height: 1.5;
+}
+
+/* =============================================
+   BOTTOM GALLERY SECTION
+   ============================================= */
+.bottom-gallery {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.gallery-img {
+    flex: 1;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 16px;
+    width: 33.333%;
+    transition: transform 0.3s ease;
+}
+
+.gallery-img:hover {
+    transform: translateY(-4px);
+}
+
+/* =============================================
+   RESPONSIVE DESIGN
+   ============================================= */
+@media (max-width: 1100px) {
+    .main-title {
+        font-size: 3.2rem;
+    }
+
+    .img-pill-large {
+        width: 220px;
+        height: 380px;
+    }
+
+    .img-pill-small {
+        width: 200px;
+        height: 320px;
+    }
+
+    .top-split {
+        margin-top: 0;
+        padding-top: 60px;
+    }
+
+    .hero-right {
+        margin-top: -60px;
+    }
+}
+
+@media (max-width: 900px) {
+    .top-split {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding-top: 40px;
+    }
+
+    .hero-left {
+        max-width: 100%;
+        margin-bottom: 60px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero-right {
+        margin-top: 0;
+        justify-content: center;
+        width: 100%;
+    }
+
+    /* Change hanging pills to standard rounded boxes on mobile */
+    .hero-img {
+        border-radius: 20px;
+    }
+
+    .img-pill-large,
+    .img-pill-small {
+        height: 300px;
+        width: 45%;
+    }
+
+    .middle-split {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .middle-left,
+    .middle-right {
+        flex: 1;
+        width: 100%;
+        padding-left: 0;
+    }
+
+    .white-line {
+        margin: 0 auto 30px auto;
+    }
+
+    .middle-right {
+        text-align: center;
+        margin-top: 40px;
+    }
+}
+
+@media (max-width: 600px) {
+    .main-title {
+        font-size: 2.6rem;
+    }
+
+    .hero-right {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .img-pill-large,
+    .img-pill-small {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1;
+    }
+
+    .bottom-gallery {
+        flex-direction: column;
+    }
+
+    .gallery-img {
+        width: 100%;
+    }
+}
