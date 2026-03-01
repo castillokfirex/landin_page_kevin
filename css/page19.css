@@ -1,0 +1,303 @@
+/* =============================================
+   RESET & VARIABLES
+   ============================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --font-main: 'Montserrat', sans-serif;
+    --color-top-bg: #f2f3f4;
+    /* Light gray background */
+    --color-bottom-bg: #ffffff;
+    --color-text-dark: #2a2a2a;
+    --color-text-gray: #4d4d4d;
+    --color-btn: #2a2a2a;
+}
+
+body {
+    font-family: var(--font-main);
+    color: var(--color-text-dark);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+/* =============================================
+   WRAPPER
+   ============================================= */
+.wrapper {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.content-container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 40px;
+    position: relative;
+}
+
+/* =============================================
+   TOP SECTION (Gray Background)
+   ============================================= */
+.top-section {
+    background-color: var(--color-top-bg);
+    padding-top: 100px;
+    padding-bottom: 240px;
+    /* Massive padding to allow for huge overlapping bowl */
+    position: relative;
+    border-bottom: 1px solid #e0e0e0;
+    /* Subtle border matching the design if any */
+}
+
+/* Internal layout for top */
+.top-section .content-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Left Hero Text */
+.hero-text {
+    flex: 1;
+    max-width: 500px;
+    z-index: 2;
+    /* Keep above images */
+}
+
+.main-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 24px;
+    color: #1a1a1a;
+}
+
+.main-desc {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--color-text-gray);
+    margin-bottom: 35px;
+}
+
+.btn-explore {
+    display: inline-block;
+    background-color: var(--color-btn);
+    color: #fff;
+    font-weight: 500;
+    font-size: 1rem;
+    padding: 14px 40px;
+    border-radius: 40px;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-explore:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Right Overlapping Image Container */
+.hero-image-wrap {
+    position: absolute;
+    right: 0;
+    top: 20px;
+    width: 600px;
+    height: 600px;
+    pointer-events: none;
+    /* Let clicks pass through empty spaces of png */
+}
+
+.main-bowl-img {
+    width: 100%;
+    height: auto;
+    transform: scale(1.1);
+    /* Make it slightly larger as in design */
+    display: block;
+    filter: drop-shadow(0 30px 40px rgba(0, 0, 0, 0.15));
+}
+
+/* =============================================
+   BOTTOM SECTION (White Background)
+   ============================================= */
+.bottom-section {
+    background-color: var(--color-bottom-bg);
+    position: relative;
+    padding-bottom: 80px;
+}
+
+/* Layout for bottom half */
+.flex-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+/* The three pill images on the left */
+.pill-gallery {
+    display: flex;
+    gap: 20px;
+    margin-top: -150px;
+    /* Pulls them up to overlap the gray section boundary */
+    z-index: 5;
+}
+
+.ingredient-pill {
+    width: 130px;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 999px;
+    /* Pill shape */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    /* Soft shadow */
+    transition: transform 0.3s ease;
+}
+
+.ingredient-pill:hover {
+    transform: translateY(-5px);
+}
+
+/* Right side Chef info block */
+.chef-info {
+    flex: 1;
+    max-width: 450px;
+    margin-top: 50px;
+    /* Push down to align properly */
+    padding-left: 20px;
+}
+
+/* Small black thick decorative line */
+.black-line {
+    width: 35px;
+    height: 3px;
+    background-color: #1a1a1a;
+    margin-bottom: 12px;
+}
+
+.chef-name {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.chef-desc {
+    font-size: 0.95rem;
+    color: var(--color-text-gray);
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+
+/* Small bottom ingredients */
+.ingredients-circles {
+    display: flex;
+    gap: 24px;
+}
+
+.ingredients-circles img {
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+    border-radius: 50%;
+    /* Subtle shadow to make them look like objects on a table */
+    filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.1));
+}
+
+/* =============================================
+   RESPONSIVE DESIGN
+   ============================================= */
+@media (max-width: 1100px) {
+    .main-title {
+        font-size: 2.8rem;
+    }
+
+    .hero-image-wrap {
+        width: 500px;
+        height: 500px;
+        right: -20px;
+    }
+
+    .pill-gallery {
+        gap: 15px;
+    }
+
+    .ingredient-pill {
+        width: 110px;
+        height: 240px;
+    }
+}
+
+@media (max-width: 900px) {
+    .top-section {
+        padding-top: 60px;
+        padding-bottom: 150px;
+    }
+
+    .top-section .content-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .hero-text {
+        align-items: center;
+        margin-bottom: 40px;
+    }
+
+    .btn-explore {
+        align-self: center;
+    }
+
+    /* Flow the big bowl underneath the text natively */
+    .hero-image-wrap {
+        position: relative;
+        right: auto;
+        top: auto;
+        width: 100%;
+        max-width: 500px;
+        height: auto;
+    }
+
+    .flex-bottom {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .pill-gallery {
+        margin-top: -60px;
+        /* Reduce overlap on mobile */
+        margin-bottom: 40px;
+    }
+
+    .chef-info {
+        text-align: center;
+        margin-top: 0;
+        padding-left: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 500px) {
+    .content-container {
+        padding: 0 20px;
+    }
+
+    .main-title {
+        font-size: 2.2rem;
+    }
+
+    .ingredient-pill {
+        width: 90px;
+        height: 200px;
+    }
+
+    .ingredients-circles {
+        gap: 15px;
+    }
+}
