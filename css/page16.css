@@ -1,0 +1,246 @@
+/* =============================================
+   RESET & VARIABLES
+   ============================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --font-main: 'Plus Jakarta Sans', sans-serif;
+    --color-bg-dark: #071920;
+    /* Deep teal/navy */
+    --color-bg-card: rgba(8, 25, 32, 0.95);
+    --color-accent: #62ead1;
+    /* Cyan button */
+    --color-text-main: #ffffff;
+    --color-text-muted: #d0d7db;
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.15);
+}
+
+body {
+    font-family: var(--font-main);
+    color: var(--color-text-main);
+    background-color: var(--color-bg-dark);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+/* =============================================
+   BACKGROUND WRAPPER
+   ============================================= */
+.hero-wrapper {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background-image: url('../media/img16/AI image - OpenAI.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    /* Overlay gradient for better text readability on the left */
+    box-shadow: inset 200px 0 300px -100px rgba(0, 0, 0, 0.6);
+}
+
+/* Base Container */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 40px;
+    position: relative;
+}
+
+/* =============================================
+   HERO CARD (Left Side)
+   ============================================= */
+.hero-card {
+    position: absolute;
+    top: 50%;
+    left: 40px;
+    transform: translateY(-50%);
+    background-color: var(--color-bg-card);
+    border-radius: 20px;
+    padding: 50px 50px 60px 50px;
+    width: 100%;
+    max-width: 520px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.color-blocks {
+    width: 50px;
+    height: auto;
+    margin-bottom: 24px;
+    display: block;
+}
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 24px;
+    letter-spacing: -0.5px;
+}
+
+.hero-desc {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+.btn-explore {
+    display: inline-block;
+    background-color: var(--color-accent);
+    color: var(--color-bg-dark);
+    font-weight: 600;
+    font-size: 1.05rem;
+    padding: 14px 36px;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.btn-explore:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(98, 234, 209, 0.4);
+    background-color: #79f2dc;
+}
+
+/* =============================================
+   BOTTOM GLASSMORPHISM BAR
+   ============================================= */
+.glass-bar {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    right: 40px;
+    display: flex;
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    overflow: hidden;
+    /* Soft shadow to separate from background */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.glass-card {
+    flex: 1;
+    /* 4 equal columns */
+    padding: 30px 40px;
+    background-color: var(--glass-bg);
+    border-right: 1px solid var(--glass-border);
+    transition: background-color 0.3s ease;
+}
+
+/* Remove right border from the last item */
+.glass-card:last-child {
+    border-right: none;
+}
+
+/* Dark variant for the first "Planets" card */
+.card-dark {
+    background-color: var(--color-bg-card);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+/* Icons above text */
+.icon-line {
+    color: #fff;
+    margin-bottom: 12px;
+    opacity: 0.8;
+}
+
+.card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+}
+
+.card-desc {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+    opacity: 0.85;
+}
+
+/* =============================================
+   RESPONSIVE (Max 1024px)
+   ============================================= */
+@media (max-width: 1024px) {
+    .glass-bar {
+        flex-wrap: wrap;
+        border-radius: 16px;
+    }
+
+    .glass-card {
+        flex: 1 1 50%;
+        border-bottom: 1px solid var(--glass-border);
+    }
+
+    /* Re-adjust borders for 2x2 grid */
+    .glass-card:nth-child(2) {
+        border-right: none;
+    }
+
+    .glass-card:nth-child(3) {
+        border-bottom: none;
+    }
+
+    .glass-card:last-child {
+        border-bottom: none;
+        border-right: none;
+    }
+}
+
+/* =============================================
+   RESPONSIVE (Max 768px MOBILE)
+   ============================================= */
+@media (max-width: 768px) {
+    .hero-card {
+        position: relative;
+        top: 0;
+        left: 0;
+        transform: none;
+        margin-top: 60px;
+        padding: 40px 30px;
+        max-width: 100%;
+        margin-bottom: 40px;
+    }
+
+    .hero-title {
+        font-size: 2.4rem;
+    }
+
+    .container {
+        padding: 0 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .glass-bar {
+        position: relative;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin-bottom: 40px;
+        flex-direction: column;
+    }
+
+    .glass-card {
+        flex: 1 1 100%;
+        border-right: none;
+        border-bottom: 1px solid var(--glass-border);
+    }
+
+    .glass-card:last-child {
+        border-bottom: none;
+    }
+}
