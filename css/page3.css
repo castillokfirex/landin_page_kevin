@@ -1,0 +1,141 @@
+/* Reseteo básico escolar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* Mantenemos Inter que da excelente lectura en párrafos cortos */
+    font-family: 'Inter', sans-serif;
+    color: #444;
+    background-color: #fff;
+    line-height: 1.6;
+}
+
+/* Contenedor principal para organizar la página al centro */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 20px 40px 20px;
+}
+
+/* === Encabezado Dividido === */
+.header {
+    /* Usamos Flexbox para poner título a la izquierda y texto a la derecha */
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 70px;
+    /* Separación con la imagen grande de abajo */
+    gap: 40px;
+    /* Espacio mínimo asegurado por si la pantalla se hace pequeña */
+}
+
+/* Título */
+.header-left {
+    flex: 1;
+    /* Permite que el contenedor del titulo crezca fluidamente */
+}
+
+.title {
+    /* Se usa Outfit que tiene un estilo muy geométrico como "Just that simple" en la imagen */
+    font-family: 'Outfit', sans-serif;
+    font-size: 4.5rem;
+    /* Título súper grande */
+    font-weight: 60;
+    color: #1a1a1a;
+    line-height: 0.8;
+    letter-spacing: 3px;
+    /* Juntar sutilmente las letras para un toque contemporáneo */
+}
+
+/* Textos y Botón */
+.header-right {
+    flex: 1;
+    max-width: 480px;
+    /* Evita que el párrafo se estire demasiado y cueste leerlo */
+    padding-top: 10px;
+    /* Empuja el párrafo levemente hacia abajo */
+}
+
+.description {
+    font-size: 1.15rem;
+    color: #666;
+    margin-bottom: 28px;
+    /* Espacio antes del botón */
+}
+
+.btn {
+    background-color: #222;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    /* Borde un poco marcado */
+    padding: 14px 32px;
+    font-size: 1rem;
+    font-weight: 500;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    /* Transiciones fluidas igual que en page1 */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover {
+    background-color: #000;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+}
+
+/* === Imagen Principal Abajo === */
+.hero {
+    width: 100%;
+}
+
+.hero img {
+    width: 100%;
+    /* Ocupa todo el contenedor horizontal */
+    height: auto;
+    /* Mantiene su proporción (no se estira) */
+    display: block;
+    /* Arregla pequeños bugs de imágenes en HTML */
+}
+
+/* ======= ESTILOS RESPONSIVE ======= */
+
+/* Pantallas medianas y Tablets (menos de 900px) */
+@media (max-width: 900px) {
+    .header {
+        /* Desactiva columnas: pone la izquierda arriba y la derecha abajo */
+        flex-direction: column;
+        gap: 30px;
+        margin-bottom: 50px;
+    }
+
+    .title {
+        font-size: 3.5rem;
+    }
+
+    .header-right {
+        max-width: 100%;
+        /* El párrafo ahora puede ocupar todo el ancho si es necesario */
+        padding-top: 0;
+    }
+}
+
+/* Teléfonos móviles (menos de 600px) */
+@media (max-width: 600px) {
+    .container {
+        padding: 50px 20px 30px 20px;
+    }
+
+    .title {
+        font-size: 2.5rem;
+        /* El título se ve enorme en compu, aquí lo reducimos mas */
+    }
+
+    .btn {
+        width: 100%;
+        /* El botón estirado de lado a lado es más fácil de apretar con el dedo */
+    }
+}
