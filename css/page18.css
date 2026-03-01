@@ -1,0 +1,319 @@
+/* =============================================
+   RESET & VARIABLES
+   ============================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Lora', serif;
+    --color-bg: #fff;
+    --color-text-dark: #202020;
+    --color-text-gray: #555555;
+    --color-btn: #2d2d2d;
+    --color-blue-line: #0076db;
+}
+
+body {
+    background-color: var(--color-bg);
+    color: var(--color-text-dark);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+/* =============================================
+   WRAPPER
+   ============================================= */
+.wrapper {
+    width: 100%;
+    max-width: 1400px;
+    /* Wide standard size for this layout */
+    margin: 0 auto;
+    padding: 60px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* =============================================
+   HEADER SECTION
+   ============================================= */
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 60px;
+}
+
+/* Decorative SVG clusters left/right */
+.header-decor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.wavelines {
+    width: 140px;
+    height: auto;
+}
+
+.circle-text {
+    width: 110px;
+    height: auto;
+    /* Optional rotation animation */
+    /* animation: spin 20s linear infinite; */
+}
+
+/* Center Content block */
+.header-content {
+    text-align: center;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10px;
+}
+
+.main-title {
+    font-family: var(--font-heading);
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--color-text-dark);
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+}
+
+.main-desc {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--color-text-gray);
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.btn-explore {
+    display: inline-block;
+    background-color: var(--color-btn);
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 12px 34px;
+    border-radius: 40px;
+    text-decoration: none;
+    transition: transform 0.2s ease, opacity 0.2s;
+}
+
+.btn-explore:hover {
+    transform: translateY(-2px);
+    opacity: 0.85;
+}
+
+/* =============================================
+   MASONRY GALLERY SECTION
+   ============================================= */
+.gallery-grid {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    /* Space between columns */
+    align-items: flex-start;
+}
+
+/* Columns */
+.col {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    /* Space between items in column */
+}
+
+/* Specific Column widths & alignments to match design perfectly */
+.col-1 {
+    width: 170px;
+    margin-top: 40px;
+}
+
+.col-2 {
+    width: 220px;
+    margin-top: 60px;
+}
+
+.col-3 {
+    width: 250px;
+}
+
+/* Center tallest image */
+.col-4 {
+    width: 220px;
+    margin-top: 40px;
+}
+
+.col-5 {
+    width: 160px;
+    margin-top: 180px;
+}
+
+/* Image classes */
+.img-standard {
+    width: 100%;
+    border-radius: 12px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Specific heights mapped to the design */
+/* Left col */
+.col-1 .img-standard:nth-of-type(1) {
+    height: 210px;
+}
+
+.col-1 .img-standard:nth-of-type(2) {
+    height: 210px;
+}
+
+/* Center-Left col */
+.col-2 .img-standard {
+    height: 280px;
+}
+
+/* Center Tall col */
+.img-tall {
+    width: 100%;
+    height: 580px;
+    border-radius: 14px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Center-Right col */
+.col-4 .img-standard:nth-of-type(1) {
+    height: 220px;
+}
+
+.col-4 .img-standard:nth-of-type(2) {
+    height: 220px;
+}
+
+.margin-top-gap {
+    margin-top: 20px;
+}
+
+/* Right col */
+.col-5 .img-standard {
+    height: 200px;
+}
+
+/* =============================================
+   EDITORIAL TEXT BOXES (Left & Right)
+   ============================================= */
+.text-box-left {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: 1.25rem;
+    color: var(--color-text-gray);
+    line-height: 1.8;
+    margin-bottom: 20px;
+    /* The dashed border outline from design */
+    border: 1px dashed rgba(0, 118, 219, 0.4);
+    padding: 10px;
+    position: relative;
+    text-align: left;
+}
+
+/* The solid blue line spanning bottom */
+.blue-line {
+    width: calc(100% - 20px);
+    height: 4px;
+    background-color: var(--color-blue-line);
+    position: absolute;
+    bottom: 8px;
+    left: 10px;
+}
+
+.text-box-right {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: 1.35rem;
+    color: var(--color-text-dark);
+    line-height: 1.8;
+    margin-top: 20px;
+    text-align: center;
+    position: relative;
+}
+
+/* Solid black line bottom center */
+.black-line {
+    width: 100px;
+    height: 3px;
+    background-color: #202020;
+    margin: 15px auto 0 auto;
+}
+
+/* =============================================
+   RESPONSIVE DESIGN
+   ============================================= */
+@media (max-width: 1100px) {
+    .header {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .header-decor {
+        flex-direction: row;
+    }
+
+    .gallery-grid {
+        flex-wrap: wrap;
+    }
+
+    /* Shift columns to flex differently */
+    .col {
+        width: calc(33.333% - 20px);
+        margin-top: 0 !important;
+    }
+
+    .col-3 {
+        width: 100%;
+        order: -1;
+    }
+
+    /* Make center image wide & top */
+    .img-tall {
+        height: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    .col {
+        width: calc(50% - 10px);
+    }
+
+    .text-box-left,
+    .text-box-right {
+        text-align: center;
+        margin: 20px auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .wrapper {
+        padding: 40px 20px;
+    }
+
+    .main-title {
+        font-size: 2.5rem;
+    }
+
+    .col {
+        width: 100%;
+    }
+}
