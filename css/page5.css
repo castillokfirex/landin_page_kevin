@@ -1,0 +1,152 @@
+/* === RESET Y BÁSICOS === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* Fuente elegida para los párrafos de texto (limpia y legible) */
+    font-family: 'Inter', sans-serif;
+    color: #444;
+    /* Color gris oscuro para que la lectura sea relajada */
+    background-color: #fff;
+    line-height: 1.6;
+}
+
+/* El contenedor mantiene la página al centro con un ancho máximo estandarizado */
+.container {
+    max-width: 1250px;
+    margin: 0 auto;
+    padding: 80px 20px 60px 20px;
+}
+
+/* === ENCABEZADO SUPERIOR === */
+.header {
+    margin-bottom: 70px;
+}
+
+.main-title {
+    /* Se usa Outfit que es más gruesa y estilizada para titulares */
+    font-family: 'Outfit', sans-serif;
+    font-size: 4.5rem;
+    /* Tamaño gigante idéntico a la imagen */
+    font-weight: 600;
+    color: #1a1a1a;
+    /* Negro casi puro */
+    line-height: 1.1;
+    letter-spacing: -1.5px;
+    /* Unir un poco las letras mejora el look contemporáneo */
+}
+
+/* === GRID DE PROYECTOS (3 COLUMNAS) === */
+.projects-grid {
+    /* CSS Grid hace muy fácil dividir el contenido horizontalmente */
+    display: grid;
+    /* Crea 3 columnas iguales */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    /* Espaciado generoso entre proyectos para que respire */
+}
+
+/* Tarjeta individual de cada proyecto */
+.project-card {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Los números superiores (01, 02, 03) */
+.project-card .number {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #888;
+    /* Un gris intermedio para no robar atención de las fotos brillantes */
+    margin-bottom: 12px;
+    line-height: 1;
+}
+
+/* Texto de descripción de los proyectos */
+.project-card .description {
+    font-size: 1.05rem;
+    color: #555;
+    margin-bottom: 24px;
+}
+
+/* El cuadro que contiene la imagen */
+.img-container {
+    width: 100%;
+    /* Truco: para que el grid se vea muy parejo, forzamos la altura de este contenedor */
+    /* Para que las 3 fotos parezcan del mismo tamaño así sean distintas en pixeles */
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    /* Oculta lo que se desborde del contenedor cuadrado */
+    background-color: #000;
+    /* Fondo negro por si la imagen tarda en cargar */
+
+    /* Agregamos una transición para cuando alguien pase el ratón */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* La imagen física (jpg, png) dentro del cuadrito */
+.img-container img {
+    width: 100%;
+    /* Ocupa el 100% del cuadro asignado */
+    height: 100%;
+    /* Ocupa el 100% del cuadro asignado */
+    object-fit: cover;
+    /* Recorta la imagen hacia el centro para llenar el espacio sin deformarse */
+    display: block;
+    /* Un suave efecto en la propia foto */
+    transition: transform 0.4s ease;
+}
+
+/* === EFECTO DE INTERACCIÓN (WOW) === */
+.project-card:hover .img-container img {
+    /* La imagen hace zoom sutil pero sin salirse del cuadrito (gracias al overflow:hidden de arriba) */
+    transform: scale(1.05);
+}
+
+.project-card:hover .img-container {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    /* Sombra elegante */
+}
+
+/* ======= CSS RESPONSIVE (MÓVIL Y TABLET) ======= */
+
+/* Pantallas Medianas / Tablets (menos de 992px) */
+@media (max-width: 992px) {
+    .main-title {
+        font-size: 3.5rem;
+        /* Achicamos titular */
+    }
+
+    .projects-grid {
+        /* Pasamos de 3 a 2 columnas para no asfixiar el texto en tablets */
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+    }
+}
+
+/* Teléfonos (menos de 600px) */
+@media (max-width: 600px) {
+    .container {
+        padding: 50px 20px 40px 20px;
+    }
+
+    .main-title {
+        font-size: 2.5rem;
+        /* Titular mucho más chico que cabe en el celular */
+    }
+
+    .projects-grid {
+        /* Pasamos de 2 columnas a que cada proyecto ocupe toda la pantalla (1 en 1) */
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .img-container {
+        /* Hacemos la imagen rectangular (wadescreen) en el móvil, en vez de cuadrada */
+        aspect-ratio: 16 / 10;
+    }
+}
