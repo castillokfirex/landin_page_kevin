@@ -1,0 +1,276 @@
+/* === RESET BÁSICO === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* Familia principal para lectura fluida */
+    font-family: 'Inter', sans-serif;
+    color: #444444;
+    /* Gris oscuro para lectura */
+    background-color: #ffffff;
+    /* Fondo blanco inmaculado */
+    line-height: 1.6;
+    overflow-x: hidden;
+    /* Evita scroll horizontal si los elementos flotan muy al borde */
+}
+
+/* Envoltura exterior para controlar todo el viewport */
+.wrapper {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+/* El lienzo principal de la composición */
+.container {
+    width: 100%;
+    max-width: 1250px;
+    /* Ancho máximo para mantener las proporciones como en el diseño */
+    height: 850px;
+    /* Altura fija para que la posición absoluta cuadre perfecta */
+    position: relative;
+    /* Clave: Todo adentro se mueve respecto a este lienzo */
+}
+
+/* === TEXTO PRINCIPAL (IZQUIERDA ARRIBA) === */
+.content-text {
+    position: absolute;
+    top: 40px;
+    left: 20px;
+    max-width: 450px;
+    z-index: 10;
+}
+
+.main-title {
+    /* Outfit para dar peso e impacto arquitectónico al título */
+    font-family: 'Outfit', sans-serif;
+    font-size: 4.8rem;
+    font-weight: 700;
+    color: #222222;
+    /* Casi negro para máximo contraste */
+    line-height: 1.15;
+    margin-bottom: 24px;
+    letter-spacing: -1.5px;
+}
+
+.description {
+    font-size: 1.1rem;
+    color: #666666;
+    margin-bottom: 40px;
+}
+
+/* Botón Explore redondeado y negro */
+.btn {
+    background-color: #222222;
+    color: #ffffff;
+    border: none;
+    border-radius: 40px;
+    /* Bordes suaves estilo pastilla */
+    padding: 14px 42px;
+    font-size: 1.05rem;
+    font-weight: 500;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.btn:hover {
+    background-color: #000000;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* === DECORACIONES SVG (Olas, Espirales, Estrellas) === */
+.shape-wave {
+    position: absolute;
+    top: 60px;
+    left: 420px;
+    width: 320px;
+    z-index: 1;
+    /* Al fondo */
+    opacity: 0.8;
+}
+
+.shape-spiral {
+    position: absolute;
+    bottom: 50px;
+    left: 80px;
+    width: 130px;
+    z-index: 1;
+}
+
+.shape-dawn-1 {
+    position: absolute;
+    top: 360px;
+    left: 500px;
+    width: 180px;
+    z-index: 6;
+    /* Por encima de la intersección del bloque rosa y lila */
+}
+
+.shape-dawn-2 {
+    position: absolute;
+    bottom: 180px;
+    right: 70px;
+    width: 220px;
+    z-index: 4;
+    /* Debajo de los bloques lilas altos */
+}
+
+
+/* === IMÁGENES ABSTRACTAS (POSICIONAMIENTO ABSOLUTO) === */
+
+/* Abstracción Azul (Arriba Derecha) */
+.img-blue {
+    position: absolute;
+    top: 40px;
+    right: 20px;
+    width: 280px;
+    height: 380px;
+    /* Forma casi vertical */
+    object-fit: cover;
+    border-radius: 20px;
+    /* Redondear bordes como en el diseño */
+    z-index: 2;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+    /* Sombra sutil para profundidad */
+}
+
+/* Bloques Cristales Lilas (Centro Derecha) */
+.img-blocky {
+    position: absolute;
+    top: 240px;
+    right: 320px;
+    width: 280px;
+    height: 380px;
+    object-fit: cover;
+    border-radius: 20px;
+    z-index: 3;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    /* Sombra un poco más fuerte por estar en medio */
+}
+
+/* Tubo esponja lila y naranja (Abajo Izquierda/Centro) */
+.img-pink {
+    position: absolute;
+    bottom: 0px;
+    left: 330px;
+    width: 280px;
+    height: 380px;
+    object-fit: cover;
+    border-radius: 20px;
+    z-index: 4;
+    /* Encima del fondo pero debajo del Dawn */
+    /* Si la foto tuviera un fondo cortado abajo lo disimularíamos, pero el border radius funciona perfecto */
+}
+
+/* === AVATAR Y TESTIMONIO (CENTRO ABAJO) === */
+.avatar-block {
+    position: absolute;
+    bottom: 60px;
+    /* Alineado verticalmente en la parte baja */
+    right: 300px;
+    /* A la derecha del bloque rosa */
+    max-width: 450px;
+    display: flex;
+    align-items: center;
+    /* Alineación al centro entre cara y texto */
+    gap: 20px;
+    z-index: 5;
+}
+
+.avatar-block img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    /* Cara perfectamente circular */
+    object-fit: cover;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.avatar-text {
+    font-size: 0.95rem;
+    color: #555555;
+    line-height: 1.5;
+}
+
+
+/* ======= DISEÑO ADAPTABLE (TABLETS Y MÓVILES) ======= */
+
+/* Pantallas medianas (iPads, Tablets - Menos de 1250px) */
+@media (max-width: 1250px) {
+    .container {
+        /* Encogemos un poco la escala de las posiciones hacia adentro */
+        transform: scale(0.9);
+        transform-origin: top left;
+        width: 110%;
+        /* Ajuste compensatorio de escala */
+    }
+}
+
+/* Pantallas muy reducidas (Móviles - Menos de 900px) */
+/* Rompemos el modelo de posicionamiento absoluto a relativo para que pueda fluir en vertical sin chocar */
+@media (max-width: 900px) {
+    .container {
+        height: auto;
+        /* Ya no limitamos la altura */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transform: none;
+        width: 100%;
+        gap: 40px;
+        /* Separación vertical */
+    }
+
+    .content-text {
+        position: relative;
+        top: 0;
+        left: 0;
+        text-align: center;
+        max-width: 100%;
+    }
+
+    .main-title {
+        font-size: 3.5rem;
+    }
+
+    /* Ocultamos algunas decoraciones que ensuciarían la pantalla del celular */
+    .shape-wave,
+    .shape-spiral,
+    .shape-dawn-1,
+    .shape-dawn-2 {
+        display: none;
+    }
+
+    /* Las 3 fotos abstractas fluirán de arriba abajo centraditas */
+    .img-blue,
+    .img-blocky,
+    .img-pink {
+        position: relative;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        max-width: 350px;
+        /* Evita que crezcan demasiado */
+        height: 380px;
+    }
+
+    .avatar-block {
+        position: relative;
+        bottom: 0;
+        right: 0;
+        flex-direction: column;
+        /* Cara arriba, párrafo abajo */
+        text-align: center;
+        max-width: 100%;
+    }
+}
