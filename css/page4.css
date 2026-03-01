@@ -1,0 +1,173 @@
+/* Reseteo básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* Fuente Inter para textos largos, es muy limpia */
+    font-family: 'Inter', sans-serif;
+    color: #444;
+    background-color: #fff;
+    line-height: 1.6;
+}
+
+/* Contenedor que centra todo en la pantalla */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+/* === Layout de dos columnas (Izquierda / Derecha) === */
+.split-layout {
+    display: flex;
+    align-items: flex-start;
+    /* Alinea los elementos al tope */
+    gap: 60px;
+    /* Separación grande entre la foto y el texto */
+}
+
+/* Columna de la Imagen */
+.column-left {
+    flex: 1;
+    /* Ocupa la mitad del espacio disponible */
+}
+
+.hero-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    /* La imagen en sí no necesita bordes redondeados porque así viene en tu diseño original */
+}
+
+/* Columna del Texto */
+.column-right {
+    flex: 1;
+    /* Ocupa la otra mitad */
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    /* Baja un poquito el texto para que no quede muy pegado al techo de la foto */
+}
+
+/* === Textos Principales y Botón === */
+.content-header {
+    margin-bottom: 50px;
+}
+
+.title {
+    /* Fuente Outfit para títulos, da ese efecto moderno de la imagen */
+    font-family: 'Outfit', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 100;
+    color: #222;
+    line-height: 1.2;
+    margin-bottom: 24px;
+    letter-spacing: -0.5px;
+}
+
+.description {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+/* Botón Explore */
+.btn {
+    background-color: #222;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    /* Bordes suaves */
+    padding: 12px 36px;
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    /* Transiciones para que se sienta moderno al pasar el ratón */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover {
+    background-color: #000;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* === Textos Inferiores (01, 02) === */
+.features-list {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    /* Separación entre el item 1 y el item 2 */
+}
+
+.feature-item {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Los números grandes (01 y 02) */
+.number {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #888;
+    /* Un gris intermedio para que no compita con el título negro */
+    margin-bottom: 8px;
+    /* Espacio antes del parrafito */
+    line-height: 1;
+}
+
+.feature-text {
+    font-size: 1.05rem;
+    color: #666;
+}
+
+/* ======= DISEÑO ADAPTABLE (RESPONSIVE) ======= */
+
+/* Pantallas Medianas y Tablets (menos de 992px) */
+@media (max-width: 992px) {
+    .split-layout {
+        /* Desactiva las columnas horizontales: pone la imagen arriba y el texto abajo */
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .column-left,
+    .column-right {
+        width: 100%;
+    }
+
+    .hero-image {
+        max-width: 600px;
+        margin: 0 auto;
+        /* Centra la imagen */
+    }
+
+    .column-right {
+        max-width: 600px;
+        margin: 0 auto;
+        /* Centra los textos bajo la imagen */
+        padding-top: 0;
+    }
+}
+
+/* Teléfonos (menos de 600px) */
+@media (max-width: 600px) {
+    .title {
+        font-size: 2.8rem;
+        /* Hace el título más pequeño para celulares */
+    }
+
+    .btn {
+        width: 100%;
+        /* El botón estirado funciona mejor en touch */
+    }
+
+    .split-layout {
+        gap: 30px;
+    }
+}
