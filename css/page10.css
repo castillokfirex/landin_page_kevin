@@ -1,0 +1,219 @@
+/* === RESET BÁSICO === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* Familia Inter para textos y descripciones */
+    font-family: 'Inter', sans-serif;
+    color: #fff;
+    /* Textos en general blancos */
+    background-color: #333333;
+    /* Fondo gris muy oscuro (dark mode) */
+    line-height: 1.6;
+}
+
+/* El contenedor abraza toda la pantalla y la centra */
+.container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Centrar verticalmente en computadoras */
+    padding: 60px 40px;
+    /* Separación de los bordes del monitor */
+}
+
+/* === LAYOUT DIVIDIDO PRINCIPAL === */
+.split-layout {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 80px;
+    /* Mucho espacio entre el texto y el bloque de fotos */
+    max-width: 1300px;
+    width: 100%;
+}
+
+/* --- COLUMNA IZQUIERDA (TEXTO Y BOTÓN) --- */
+.column-left {
+    flex: 1;
+    max-width: 480px;
+    /* Que el texto no sea muy ancho */
+}
+
+.main-title {
+    /* La fuente impactante Outfit para Design, Create, Inspire */
+    font-family: 'Outfit', sans-serif;
+    font-size: 5.5rem;
+    /* Tamaño masivo */
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 30px;
+    letter-spacing: -1.5px;
+    /* Compactar letras */
+}
+
+/* Colores sacados exactamente de la imagen para cada palabra */
+.word-design {
+    color: #f5b0ad;
+}
+
+/* Rosa salmón claro */
+.word-create {
+    color: #8ecae6;
+}
+
+/* Celeste agua */
+.word-inspire {
+    color: #5bc0be;
+}
+
+/* Turquesa menta */
+
+.description {
+    font-size: 1.15rem;
+    color: rgba(255, 255, 255, 0.9);
+    /* Blanco un poco más suave para no cansar */
+    margin-bottom: 40px;
+}
+
+/* Botón Explore redondeado y blanco */
+.btn {
+    background-color: #ffffff;
+    color: #333;
+    border: none;
+    border-radius: 40px;
+    /* Forma de píldora igual al diseño */
+    padding: 16px 48px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    /* Que combine con el párrafo */
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* --- COLUMNA DERECHA (LA GRILLA 4x4) --- */
+.column-right {
+    flex: 1.2;
+    /* Le doy un poquito más de prioridad a la grilla que al texto */
+    display: flex;
+    justify-content: flex-end;
+    /* Empujo las fotos a la derecha */
+}
+
+/* El bloque contenedor de las fotos en sí */
+.content-grid {
+    /* CSS Grid es perfecto para hacer este tablero de ajedrez cuadrado */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* 4 Columnas perfectas */
+    grid-template-rows: repeat(4, 1fr);
+    /* 4 Filas perfectas */
+    gap: 15px;
+    /* Espacio separador entre cada fotito */
+
+    /* Le damos un límite para que los cuadros no sean descomunales en monitores ultra anchos */
+    max-width: 650px;
+}
+
+/* Cada cuadrito */
+.grid-item {
+    aspect-ratio: 1 / 1;
+    /* Forzamos a que siempre sean cuadrados perfectos */
+    border-radius: 20px;
+    /* Las esquinas bastante redondeadas estilo iOS App */
+    overflow: hidden;
+    /* Que las fotos no se salgan del borde redondo */
+
+    /* Transición sutil al pasar el puntero */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.grid-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Recortar la foto para que llene el cuadrito bonito */
+    display: block;
+}
+
+/* Efecto Hover interactivo de los cuadritos */
+.grid-item:hover {
+    transform: scale(1.08);
+    /* Crece sutilmente */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    /* Sombra oscura para resaltar más */
+    z-index: 10;
+    /* Que la foto crecida flote encima de las de al lado */
+    position: relative;
+}
+
+/* ======= DISEÑO ADAPTABLE (TABLETS Y MÓVILES) ======= */
+
+/* Pantallas medianas (Bajo 1150px) */
+@media (max-width: 1150px) {
+    .split-layout {
+        gap: 40px;
+    }
+
+    .main-title {
+        font-size: 4rem;
+    }
+
+    .column-right {
+        justify-content: center;
+    }
+}
+
+/* Teléfonos y visualización vertical (Bajo 900px) */
+@media (max-width: 900px) {
+    .container {
+        padding: 40px 20px;
+        align-items: flex-start;
+        /* Para que se pueda hacer scroll vertical sin atraparse */
+    }
+
+    .split-layout {
+        /* Romper el layout a una sola columna vertical */
+        flex-direction: column;
+        gap: 60px;
+    }
+
+    .column-left {
+        width: 100%;
+        max-width: 100%;
+        text-align: center;
+        /* Todo centrado visualmente */
+    }
+
+    .main-title {
+        font-size: 3.5rem;
+    }
+
+    .column-right {
+        width: 100%;
+    }
+
+    .content-grid {
+        width: 100%;
+        /* Mantener 4 columnas en móvil podría verse muy pequeño, se cambia a una grilla de 3, o dejarlo en 4 pero más chicas */
+        /* Dejaremos 4 columnas para que sea fiel al arte visual, pero reduciremos el gap */
+        gap: 10px;
+        max-width: 100%;
+    }
+
+    .grid-item {
+        border-radius: 12px;
+        /* Redondeo menos pronunciado en celular */
+    }
+}
