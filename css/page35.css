@@ -1,0 +1,275 @@
+/* =============================================
+   RESET & VARIABLES
+   ============================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --font-heading: 'Zilla Slab', serif;
+    --font-body: 'Inter', sans-serif;
+
+    --color-bg: #fafafa;
+    --color-text-dark: #303030;
+    --color-text-gray: #555555;
+    --color-text-light: #cccccc;
+
+    --color-btn-bg: #222222;
+    --color-border: #333333;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--color-bg);
+    color: var(--color-text-dark);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+/* =============================================
+   WRAPPER & CONTAINER
+   ============================================= */
+.wrapper {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 40px;
+}
+
+.hero-split {
+    max-width: 1350px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    /* Match heights if needed */
+    gap: 60px;
+}
+
+/* =============================================
+   LEFT COLUMN
+   ============================================= */
+.hero-left {
+    flex: 0 0 42%;
+    max-width: 520px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 20px;
+}
+
+.brand-logo {
+    height: 70px;
+    width: auto;
+    margin-bottom: 30px;
+}
+
+.main-title {
+    font-family: var(--font-heading);
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--color-text-dark);
+    margin-bottom: 24px;
+}
+
+.main-desc {
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: var(--color-text-gray);
+    margin-bottom: 40px;
+}
+
+.btn-primary {
+    display: inline-block;
+    background-color: var(--color-btn-bg);
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 1.05rem;
+    padding: 18px 36px;
+    border-radius: 40px;
+    text-decoration: none;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    margin-bottom: 60px;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    background-color: #000000;
+}
+
+/* Brutalist Quote Box Structure */
+.quote-box-wrapper {
+    position: relative;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+/* The solid dark grey box offset underneath */
+.quote-shadow-block {
+    position: absolute;
+    top: 15px;
+    left: 10px;
+    width: 100%;
+    height: 100%;
+    background-color: #555555;
+    z-index: 1;
+}
+
+/* The white box with a rigid black border */
+.quote-content-box {
+    position: relative;
+    width: 100%;
+    background-color: #ffffff;
+    border: 1px solid var(--color-border);
+    padding: 15px;
+    /* Creates the white border margin inside */
+    z-index: 5;
+}
+
+/* The innermost dark box holding the text */
+.quote-inner-dark {
+    background-color: #3b3b3b;
+    padding: 25px 30px;
+}
+
+.quote-text {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: var(--color-text-light);
+    font-style: italic;
+    /* Mimics the design quote */
+}
+
+/* Footer Social Icons */
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: auto;
+    /* Pushes to bottom */
+}
+
+.social-icon {
+    width: 24px;
+    height: 24px;
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+}
+
+.social-icon:hover {
+    opacity: 1;
+}
+
+/* =============================================
+   RIGHT COLUMN (Gallery & Pills)
+   ============================================= */
+.hero-right {
+    flex: 0 0 55%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.gallery-wrapper {
+    position: relative;
+    /* Anchor for the absolute pills */
+    width: 100%;
+    height: 100%;
+}
+
+.main-gallery-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    /* Removes weird baseline gaps */
+}
+
+/* Floating White Pills */
+.label-pill {
+    position: absolute;
+    background-color: #ffffff;
+    color: var(--color-text-dark);
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 8px 18px;
+    border-radius: 20px;
+    border: 1px solid var(--color-border);
+    /* Hard 3D brutalist drop shadow */
+    box-shadow: 2px 3px 0px rgba(0, 0, 0, 1);
+    z-index: 10;
+}
+
+/* 
+  Positioning these relative to the image percentages so they scale 
+  perfectly with the single image if the window resizes. 
+*/
+.pill-inclusive {
+    top: 5%;
+    right: 15%;
+}
+
+.pill-creative {
+    top: 25%;
+    left: 27%;
+}
+
+.pill-diverse {
+    bottom: 45%;
+    right: 15%;
+}
+
+.pill-caring {
+    bottom: 23%;
+    left: 27%;
+}
+
+/* =============================================
+   RESPONSIVE DESIGN
+   ============================================= */
+@media (max-width: 1100px) {
+    .main-title {
+        font-size: 2.8rem;
+    }
+
+    .hero-split {
+        gap: 40px;
+    }
+}
+
+@media (max-width: 900px) {
+    .hero-split {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero-left {
+        max-width: 100%;
+        margin-bottom: 60px;
+    }
+
+    .quote-box-wrapper {
+        max-width: 500px;
+    }
+
+    .hero-right {
+        justify-content: center;
+        width: 100%;
+    }
+}
+
+@media (max-width: 500px) {
+    .main-title {
+        font-size: 2.4rem;
+    }
+
+    .label-pill {
+        font-size: 0.7rem;
+        padding: 6px 12px;
+        box-shadow: 1px 2px 0px rgba(0, 0, 0, 1);
+    }
+}

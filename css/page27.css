@@ -1,0 +1,206 @@
+/* =============================================
+   RESET & VARIABLES
+   ============================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --font-main: 'Montserrat', sans-serif;
+    --color-text-white: #ffffff;
+    --color-btn-blue: #559dfc;
+    --color-btn-hover: #3b88f2;
+    --glass-bg: rgba(255, 255, 255, 0.25);
+    --glass-border: rgba(255, 255, 255, 0.3);
+}
+
+body {
+    font-family: var(--font-main);
+    color: var(--color-text-white);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    background-color: #d8d8d8;
+    /* Fallback for image */
+}
+
+/* =============================================
+   HERO WRAPPER (Full Screen Background)
+   ============================================= */
+.hero-wrapper {
+    width: 100%;
+    min-height: 100vh;
+    background-image: url('../media/img27/unsplash_xB4ExGcUai0.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Center everything vertically */
+    padding: 40px 0;
+}
+
+.container {
+    max-width: 1300px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+/* =============================================
+   LEFT GLASS PANEL
+   ============================================= */
+.glass-panel {
+    flex: 0 0 45%;
+    max-width: 580px;
+    /* User requested specific attention to internal spacing to avoid overlap */
+    padding: 80px 60px;
+
+    /* The Glass Effect */
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-radius: 40px;
+
+    /* Box shadow to subtly separate the frosted glass from background blur */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* keep content strictly centered inside */
+}
+
+.subtitle {
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-bottom: 24px;
+    color: var(--color-text-white);
+    opacity: 0.9;
+}
+
+.main-title {
+    font-size: 3.4rem;
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 30px;
+    letter-spacing: -1px;
+}
+
+.main-desc {
+    font-size: 1.15rem;
+    line-height: 1.6;
+    margin-bottom: 45px;
+    /* Big gap before button to prevent collision */
+    opacity: 0.9;
+}
+
+.btn-primary {
+    display: inline-block;
+    align-self: flex-start;
+    background-color: var(--color-btn-blue);
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 1.05rem;
+    padding: 16px 36px;
+    border-radius: 40px;
+    text-decoration: none;
+    transition: transform 0.2s ease, background-color 0.2s;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    background-color: var(--color-btn-hover);
+}
+
+/* =============================================
+   RIGHT GALLERY
+   ============================================= */
+.right-gallery {
+    flex: 0 0 25%;
+    max-width: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.gallery-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.gallery-img:hover {
+    transform: translateX(-5px);
+}
+
+/* =============================================
+   RESPONSIVE DESIGN
+   ============================================= */
+@media (max-width: 1100px) {
+    .glass-panel {
+        padding: 60px 40px;
+    }
+
+    .main-title {
+        font-size: 2.8rem;
+    }
+
+    .right-gallery {
+        max-width: 240px;
+    }
+}
+
+@media (max-width: 900px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+    }
+
+    .glass-panel {
+        max-width: 100%;
+        text-align: center;
+        padding: 50px 30px;
+    }
+
+    .btn-primary {
+        align-self: center;
+        /* Center the button on mobile */
+    }
+
+    .right-gallery {
+        flex-direction: row;
+        /* Turn right gallery horizontal on mobile */
+        max-width: 100%;
+        width: 100%;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-bottom: 20px;
+    }
+
+    .gallery-img {
+        width: 30%;
+        min-width: 150px;
+    }
+}
+
+@media (max-width: 500px) {
+    .main-title {
+        font-size: 2.2rem;
+    }
+
+    .main-desc {
+        font-size: 1rem;
+    }
+}
